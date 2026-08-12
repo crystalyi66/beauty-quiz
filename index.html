@@ -73,7 +73,7 @@
   .qz-diagram-img{width:100%;height:auto;display:block;}
   .qz-ring{
     position:absolute;
-    width:15%;
+    width:7%;
     aspect-ratio:1/1;
     border:3px solid #ef4136;
     border-radius:50%;
@@ -87,10 +87,26 @@
     50%{transform:translate(-50%,-50%) scale(1.15);opacity:.65;}
     100%{transform:translate(-50%,-50%) scale(0.85);opacity:1;}
   }
+  .qz-callout{
+    position:absolute;
+    transform:translate(-50%,-50%);
+    background:#ef4136;
+    color:#fff;
+    font-weight:900;
+    font-size:13px;
+    line-height:1;
+    padding:5px 9px;
+    border-radius:8px;
+    box-shadow:0 2px 6px rgba(0,0,0,.3);
+    white-space:nowrap;
+    pointer-events:none;
+    z-index:3;
+  }
   .qz-target-badge{
     position:absolute;top:10px;left:10px;background:var(--sage-dark);color:#fff;
-    font-weight:900;font-size:13px;padding:4px 12px;border-radius:20px;letter-spacing:1px;
-    box-shadow:0 2px 6px rgba(0,0,0,.15);
+    font-weight:900;font-size:16px;padding:7px 16px;border-radius:22px;letter-spacing:1px;
+    box-shadow:0 2px 6px rgba(0,0,0,.2);
+    z-index:4;
   }
 
   .qz-question{text-align:center;margin:14px 0 10px;font-size:15px;font-weight:700;color:var(--ink);}
@@ -183,10 +199,11 @@
       </div>
 
       <div class="qz-stage">
-        <div class="qz-target-badge" id="qz-target-badge">編號 1</div>
+        <div class="qz-target-badge" id="qz-target-badge">第 1 題・編號 1</div>
         <div class="qz-img-wrap" id="qz-img-wrap">
           <img class="qz-diagram-img" id="qz-diagram-img" src="" alt="部位圖">
           <div class="qz-ring" id="qz-ring"></div>
+          <div class="qz-callout" id="qz-callout">1</div>
         </div>
       </div>
       <p class="qz-note">紅色圈圈標示的位置就是這一題要作答的編號</p>
@@ -242,41 +259,41 @@ const DATA = {
   skull: {
     img: SKULL_IMG,
     points: [
-      {n:1,name:"頂骨",x:38.5,y:25.1},
-      {n:2,name:"枕骨",x:13.1,y:52.9},
-      {n:3,name:"顳骨",x:46.9,y:42.2},
-      {n:4,name:"頸椎骨",x:43.1,y:76.9},
-      {n:5,name:"額骨",x:76.0,y:27.5},
-      {n:6,name:"淚骨",x:76.7,y:46.7},
-      {n:7,name:"篩骨",x:72.9,y:45.1},
-      {n:8,name:"蝶骨",x:62.5,y:42.2},
-      {n:9,name:"鼻骨",x:92.3,y:48.4},
-      {n:10,name:"顴骨",x:74.0,y:55.3},
-      {n:11,name:"上頜骨",x:82.9,y:66.7},
-      {n:12,name:"下頜骨",x:85.8,y:83.9},
-      {n:13,name:"乳突",x:41.3,y:61.8},
-      {n:14,name:"外耳道",x:46.3,y:62.2},
-      {n:15,name:"下頜骨角尖",x:55.2,y:80.0}
+      {n:1,name:"頂骨",x:35.4,y:25.1},
+      {n:2,name:"枕骨",x:14.2,y:54.5},
+      {n:3,name:"顳骨",x:46.3,y:42.7},
+      {n:4,name:"頸椎骨",x:44.6,y:77.3},
+      {n:5,name:"額骨",x:75.8,y:27.5},
+      {n:6,name:"淚骨",x:80.0,y:48.2},
+      {n:7,name:"篩骨",x:75.4,y:46.1},
+      {n:8,name:"蝶骨",x:63.8,y:43.5},
+      {n:9,name:"鼻骨",x:92.1,y:51.8},
+      {n:10,name:"顴骨",x:72.9,y:57.6},
+      {n:11,name:"上頜骨",x:83.8,y:67.5},
+      {n:12,name:"下頜骨",x:85.8,y:86.3},
+      {n:13,name:"乳突",x:41.5,y:65.5},
+      {n:14,name:"外耳道",x:47.9,y:65.3},
+      {n:15,name:"下頜骨角尖",x:56.3,y:81.6}
     ]
   },
   muscle: {
     img: MUSCLE_IMG,
     points: [
-      {n:1,name:"額肌",x:22.3,y:15.3},
-      {n:2,name:"眼輪匝肌",x:23.4,y:33.9},
-      {n:3,name:"顴肌",x:31.9,y:39.1},
-      {n:4,name:"頰肌",x:28.7,y:44.9},
-      {n:5,name:"口輪匝肌",x:23.4,y:44.3},
-      {n:6,name:"下舌方肌",x:21.3,y:49.0},
-      {n:7,name:"嚼肌",x:39.4,y:43.1},
-      {n:8,name:"頸闊肌",x:45.7,y:62.3},
-      {n:9,name:"胸鎖乳突肌",x:54.3,y:48.3},
-      {n:10,name:"顳肌",x:45.7,y:25.7},
-      {n:11,name:"枕肌",x:71.3,y:29.2},
-      {n:12,name:"頰肌",x:18.7,y:51.3},
-      {n:13,name:"斜方肌",x:66.6,y:62.3},
-      {n:14,name:"胸大肌",x:29.8,y:88.7},
-      {n:15,name:"三角肌",x:59.6,y:88.7}
+      {n:1,name:"額肌",x:25.5,y:17.4},
+      {n:2,name:"眼輪匝肌",x:25.1,y:34.8},
+      {n:3,name:"顴肌",x:30.0,y:39.7},
+      {n:4,name:"頰肌",x:31.5,y:44.9},
+      {n:5,name:"口輪匝肌",x:24.7,y:45.4},
+      {n:6,name:"下舌方肌",x:23.6,y:51.8},
+      {n:7,name:"嚼肌",x:38.7,y:44.9},
+      {n:8,name:"頸闊肌",x:44.3,y:62.6},
+      {n:9,name:"胸鎖乳突肌",x:52.6,y:48.7},
+      {n:10,name:"顳肌",x:46.0,y:25.7},
+      {n:11,name:"枕肌",x:69.8,y:31.7},
+      {n:12,name:"頰肌",x:20.9,y:53.9},
+      {n:13,name:"斜方肌",x:66.0,y:62.3},
+      {n:14,name:"胸大肌",x:30.2,y:89.0},
+      {n:15,name:"三角肌",x:59.1,y:88.3}
     ]
   }
 };
@@ -336,7 +353,21 @@ function renderDiagram(){
   const ring = $('qz-ring');
   ring.style.left = target.x + "%";
   ring.style.top = target.y + "%";
-  $('qz-target-badge').textContent = "編號 " + target.n;
+
+  // 讓數字標籤往畫面空曠的方向偏移，避免和旁邊相鄰的編號重疊
+  const offX = target.x < 50 ? -9 : 9;
+  const offY = target.y < 15 ? 10 : -10;
+  let calloutX = target.x + offX;
+  let calloutY = target.y + offY;
+  calloutX = Math.min(94, Math.max(6, calloutX));
+  calloutY = Math.min(94, Math.max(6, calloutY));
+
+  const callout = $('qz-callout');
+  callout.textContent = target.n;
+  callout.style.left = calloutX + "%";
+  callout.style.top = calloutY + "%";
+
+  $('qz-target-badge').textContent = "第 " + (idx+1) + " 題・編號 " + target.n;
 }
 
 function renderQuestion(){
